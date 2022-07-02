@@ -26,14 +26,17 @@ namespace MicroserviceApp.Web.Controllers
             }
             return View(list);
         }
+        [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
-            ProductDto model = new ProductDto();
+            var model = new ProductDto();
             var response = await _productService.GetProductByIdAsync<ResponseDto>(id);
-            if (response != null && response.IsSuccess)
+            if (response!=null&& response.IsSuccess)
             {
                 model = JsonConvert.DeserializeObject<ProductDto>(Convert.ToString(response.Result));
+
             }
+
             return View(model);
         }
 

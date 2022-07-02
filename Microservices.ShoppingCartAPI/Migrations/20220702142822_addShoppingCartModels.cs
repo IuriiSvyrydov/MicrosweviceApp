@@ -2,9 +2,9 @@
 
 #nullable disable
 
-namespace MicroservicesApp.Product.API.Migrations
+namespace Microservices.ShoppingCartAPI.Migrations
 {
-    public partial class init : Migration
+    public partial class addShoppingCartModels : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,8 +12,7 @@ namespace MicroservicesApp.Product.API.Migrations
                 name: "Products",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CategoryName = table.Column<string>(type: "nvarchar(max)", nullable: false),
